@@ -4,16 +4,18 @@ These Object-Oriented Programming tools help developers to achieve code modulari
 
 In this Sudoku Solver project, you'll learn how to use classes and objects to build a Sudoku grid and to solve a Sudoku puzzle.
 """
+
+
 class Board:
     def __init__(self, board):
         self.board = board
 
     def __str__(self):
-        board_str = ''
+        board_str = ""
         for row in self.board:
-            row_str = [str(i) if i else '*' for i in row]
-            board_str += ' '.join(row_str)
-            board_str += '\n'
+            row_str = [str(i) if i else "*" for i in row]
+            board_str += " ".join(row_str)
+            board_str += "\n"
         return board_str
 
     def find_empty_cell(self):
@@ -59,25 +61,27 @@ class Board:
                 self.board[row][col] = 0
         return False
 
+
 def solve_sudoku(board):
     gameboard = Board(board)
-    print(f'Puzzle to solve:\n{gameboard}')
+    print(f"Puzzle to solve:\n{gameboard}")
     if gameboard.solver():
-        print(f'Solved puzzle:\n{gameboard}')
+        print(f"Solved puzzle:\n{gameboard}")
     else:
-        print('The provided puzzle is unsolvable.')
+        print("The provided puzzle is unsolvable.")
     return gameboard
 
+
 puzzle = [
-  [0, 0, 2, 0, 0, 8, 0, 0, 0],
-  [0, 0, 0, 0, 0, 3, 7, 6, 2],
-  [4, 3, 0, 0, 0, 0, 8, 0, 0],
-  [0, 5, 0, 0, 3, 0, 0, 9, 0],
-  [0, 4, 0, 0, 0, 0, 0, 2, 6],
-  [0, 0, 0, 4, 6, 7, 0, 0, 0],
-  [0, 8, 6, 7, 0, 4, 0, 0, 0],
-  [0, 0, 0, 5, 1, 9, 0, 0, 8],
-  [1, 7, 0, 0, 0, 6, 0, 0, 5]
+    [0, 0, 9, 5, 0, 0, 4, 0, 0],
+    [1, 4, 0, 0, 7, 9, 0, 0, 0],
+    [3, 0, 0, 6, 0, 0, 0, 9, 0],
+    [6, 0, 0, 0, 2, 0, 0, 0, 4],
+    [0, 0, 1, 0, 0, 0, 2, 0, 0],
+    [5, 0, 0, 0, 3, 0, 0, 0, 6],
+    [0, 8, 0, 0, 0, 6, 0, 0, 7],
+    [0, 0, 0, 2, 5, 0, 0, 4, 8],
+    [0, 0, 2, 0, 0, 3, 9, 0, 0],
 ]
 
 solve_sudoku(puzzle)
